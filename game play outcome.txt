@@ -1,0 +1,3278 @@
+saurabh@saurabh-ThinkPad-T440p:~/Desktop/seminar-project/alpha-zero-general$ python3.6 main.py 
+/usr/local/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+2018-03-20 21:53:09.269388: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+----------------------********************-----------------------*********************-----------------
+main.py==>  args:  {'numIters': 1, 'numEps': 2, 'tempThreshold': 15, 'updateThreshold': 0.6, 'maxlenOfQueue': 200000, 'numMCTSSims': 25, 'arenaCompare': 40, 'cpuct': 1, 'checkpoint': './temp/', 'load_model': False, 'load_folder_file': ('/dev/models/8x100x50', 'best.pth.tar'), 'numItersForTrainExamplesHistory': 20}
+------ITER 1------
+Coach.py==>learn  self.skipFirstSelfPlay:  False
+Coach.py ==>executeEpisode
+Coach.py ==>executeEpisode  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] self.curPlayer:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+Coach.py ==>executeEpisode  canonicalBoard:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02689169 0.02697687 0.02675205 0.02720051 0.02693661 0.0272829
+  0.0271702  0.02701824 0.02708597 0.02719847 0.02686244 0.02700447
+  0.02677713 0.02692036 0.02693981 0.02741599 0.02676691 0.02703222
+  0.02710852 0.02715879 0.02686235 0.02685968 0.02713557 0.02729671
+  0.02733327 0.02674098 0.02695157 0.02724305 0.02700938 0.02691598
+  0.02721293 0.02695314 0.02711035 0.02700536 0.02678004 0.02688735
+  0.02720215]] v:  [[-0.00416191]]
+NNet.py==>predict- returns values  pi[0]:  [0.02689169 0.02697687 0.02675205 0.02720051 0.02693661 0.0272829
+ 0.0271702  0.02701824 0.02708597 0.02719847 0.02686244 0.02700447
+ 0.02677713 0.02692036 0.02693981 0.02741599 0.02676691 0.02703222
+ 0.02710852 0.02715879 0.02686235 0.02685968 0.02713557 0.02729671
+ 0.02733327 0.02674098 0.02695157 0.02724305 0.02700938 0.02691598
+ 0.02721293 0.02695314 0.02711035 0.02700536 0.02678004 0.02688735
+ 0.02720215] v[0]:  [-0.00416191]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191d21eb8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(1, 2), (3, 4)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(4, 3), (2, 1)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 2), (2, 1), (3, 4), (4, 3)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 2), (2, 1), (3, 4), (4, 3)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00416191]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  8 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 2) action/self.n:  1 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  8 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02688284 0.0268345  0.02682219 0.02721021 0.02692372 0.02718497
+  0.02711649 0.02717743 0.02695581 0.0271845  0.02684296 0.02711788
+  0.02683507 0.02682089 0.02694804 0.02737438 0.02673036 0.02703598
+  0.02706737 0.02699797 0.02710439 0.02692284 0.0272494  0.0274362
+  0.02723976 0.0267186  0.02702791 0.02713264 0.02710678 0.02708496
+  0.02737409 0.02690767 0.02703502 0.02706921 0.02679865 0.02676184
+  0.02696634]] v:  [[-0.01070064]]
+NNet.py==>predict- returns values  pi[0]:  [0.02688284 0.0268345  0.02682219 0.02721021 0.02692372 0.02718497
+ 0.02711649 0.02717743 0.02695581 0.0271845  0.02684296 0.02711788
+ 0.02683507 0.02682089 0.02694804 0.02737438 0.02673036 0.02703598
+ 0.02706737 0.02699797 0.02710439 0.02692284 0.0272494  0.0274362
+ 0.02723976 0.0267186  0.02702791 0.02713264 0.02710678 0.02708496
+ 0.02737409 0.02690767 0.02703502 0.02706921 0.02679865 0.02676184
+ 0.02696634] v[0]:  [-0.01070064]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c9c7f0>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(3, 1), (1, 1), (1, 3)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 3), (3, 1), (1, 1)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 3), (3, 1), (1, 1)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.01070064]
+MCTS.py==>search  returning value of canonical board -v:  [-0.01070064]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  27 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 3) action/self.n:  4 action%self.n:  3
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  27 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02685654 0.0269959  0.02684617 0.02716462 0.02688116 0.02716106
+  0.02715747 0.02725945 0.02699981 0.02720295 0.02700027 0.02719249
+  0.02689392 0.02682649 0.02672429 0.02737867 0.02672335 0.02705285
+  0.02710167 0.02699725 0.02696117 0.02703773 0.02708215 0.02714435
+  0.02721433 0.02678799 0.02698262 0.02700232 0.02705328 0.02703398
+  0.02733901 0.02689452 0.02720397 0.02687763 0.02694332 0.02704889
+  0.02697633]] v:  [[-0.00407928]]
+NNet.py==>predict- returns values  pi[0]:  [0.02685654 0.0269959  0.02684617 0.02716462 0.02688116 0.02716106
+ 0.02715747 0.02725945 0.02699981 0.02720295 0.02700027 0.02719249
+ 0.02689392 0.02682649 0.02672429 0.02737867 0.02672335 0.02705285
+ 0.02710167 0.02699725 0.02696117 0.02703773 0.02708215 0.02714435
+ 0.02721433 0.02678799 0.02698262 0.02700232 0.02705328 0.02703398
+ 0.02733901 0.02689452 0.02720397 0.02687763 0.02694332 0.02704889
+ 0.02697633] v[0]:  [-0.00407928]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c9c7f0>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 2 newmoves:  [(4, 4), (4, 2), (2, 4)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(4, 2), (4, 4), (2, 4)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(4, 2), (4, 4), (2, 4)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00407928]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00407928]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  22 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (3, 4) action/self.n:  3 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  22 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02680903 0.02693842 0.02685422 0.02721473 0.026816   0.02715806
+  0.0272278  0.02726673 0.0270026  0.02724833 0.02694138 0.02698628
+  0.02677883 0.02692373 0.02683975 0.0272804  0.02674824 0.02704545
+  0.02713366 0.02711657 0.02690614 0.02689129 0.0272039  0.02708406
+  0.0272017  0.02679618 0.02711177 0.02697203 0.02702198 0.02694569
+  0.02730338 0.02696634 0.02731379 0.02692548 0.02686957 0.02706588
+  0.02709061]] v:  [[-0.00324338]]
+NNet.py==>predict- returns values  pi[0]:  [0.02680903 0.02693842 0.02685422 0.02721473 0.026816   0.02715806
+ 0.0272278  0.02726673 0.0270026  0.02724833 0.02694138 0.02698628
+ 0.02677883 0.02692373 0.02683975 0.0272804  0.02674824 0.02704545
+ 0.02713366 0.02711657 0.02690614 0.02689129 0.0272039  0.02708406
+ 0.0272017  0.02679618 0.02711177 0.02697203 0.02702198 0.02694569
+ 0.02730338 0.02696634 0.02731379 0.02692548 0.02686957 0.02706588
+ 0.02709061] v[0]:  [-0.00324338]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c9c7f0>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 2 newmoves:  [(4, 4), (4, 2), (2, 4)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(4, 2), (4, 4), (2, 4)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(4, 2), (4, 4), (2, 4)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00324338]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00324338]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  13 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 1) action/self.n:  2 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  13 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02685595 0.02685668 0.02677067 0.02735801 0.0269377  0.02717984
+  0.02715775 0.02713682 0.02700503 0.02719614 0.02694465 0.02714065
+  0.02685415 0.02678248 0.0270955  0.02739429 0.02678705 0.02705257
+  0.02719384 0.02702118 0.02718022 0.02687982 0.02710622 0.0274247
+  0.0271699  0.02660403 0.02705745 0.02726518 0.02718306 0.02698474
+  0.02721125 0.02688271 0.02692244 0.02691061 0.02677361 0.02672306
+  0.02700008]] v:  [[-0.00796213]]
+NNet.py==>predict- returns values  pi[0]:  [0.02685595 0.02685668 0.02677067 0.02735801 0.0269377  0.02717984
+ 0.02715775 0.02713682 0.02700503 0.02719614 0.02694465 0.02714065
+ 0.02685415 0.02678248 0.0270955  0.02739429 0.02678705 0.02705257
+ 0.02719384 0.02702118 0.02718022 0.02687982 0.02710622 0.0274247
+ 0.0271699  0.02660403 0.02705745 0.02726518 0.02718306 0.02698474
+ 0.02721125 0.02688271 0.02692244 0.02691061 0.02677361 0.02672306
+ 0.02700008] v[0]:  [-0.00796213]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c9c7f0>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(3, 1), (1, 1), (1, 3)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 3), (3, 1), (1, 1)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 3), (3, 1), (1, 1)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00796213]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00796213]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  8 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 2) action/self.n:  1 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  8 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  7 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 1) action/self.n:  1 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  1 -1  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  1  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  7 next_s:  [[ 0  0  0  0  0  0]
+ [ 0 -1  1  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  1  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02687509 0.02684923 0.02679902 0.02731705 0.02689815 0.02727602
+  0.02722709 0.02706408 0.02708622 0.02715888 0.02686913 0.02708329
+  0.02660285 0.02683338 0.02695581 0.02739375 0.02668065 0.02706514
+  0.02716584 0.02721659 0.02682443 0.02678498 0.02715057 0.02737787
+  0.02732942 0.02662405 0.02721118 0.02721451 0.02709074 0.02697693
+  0.02714004 0.02685905 0.02708801 0.02693837 0.0267516  0.02688841
+  0.02733262]] v:  [[-0.00506962]]
+NNet.py==>predict- returns values  pi[0]:  [0.02687509 0.02684923 0.02679902 0.02731705 0.02689815 0.02727602
+ 0.02722709 0.02706408 0.02708622 0.02715888 0.02686913 0.02708329
+ 0.02660285 0.02683338 0.02695581 0.02739375 0.02668065 0.02706514
+ 0.02716584 0.02721659 0.02682443 0.02678498 0.02715057 0.02737787
+ 0.02732942 0.02662405 0.02721118 0.02721451 0.02709074 0.02697693
+ 0.02714004 0.02685905 0.02708801 0.02693837 0.0267516  0.02688841
+ 0.02733262] v[0]:  [-0.00506962]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  1  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c9c7f0>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0 -1  1  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  1 , 2 newmoves:  [(1, 0)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(3, 4)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(4, 3), (2, 1)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 0), (2, 1), (3, 4), (4, 3)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 0), (2, 1), (3, 4), (4, 3)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00506962]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00506962]
+MCTS.py==>search  returning value of canonical board -v:  [0.00506962]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  13 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 1) action/self.n:  2 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  13 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  7 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 1) action/self.n:  1 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  1  0  0  0  0]
+ [ 0 -1  1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  1 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  7 next_s:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  1 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  1 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02679294 0.0268703  0.02676644 0.02712806 0.02696343 0.02727312
+  0.02726259 0.02700072 0.02702793 0.02718533 0.02679627 0.02702453
+  0.0267115  0.02682734 0.02695435 0.0274584  0.02673381 0.02704877
+  0.0271171  0.02711405 0.02685672 0.02676711 0.02723928 0.02740139
+  0.02734928 0.02676375 0.0270519  0.02727011 0.02710359 0.02695503
+  0.02730549 0.02695525 0.02712083 0.02694807 0.0268443  0.02677179
+  0.02723915]] v:  [[-0.00506584]]
+NNet.py==>predict- returns values  pi[0]:  [0.02679294 0.0268703  0.02676644 0.02712806 0.02696343 0.02727312
+ 0.02726259 0.02700072 0.02702793 0.02718533 0.02679627 0.02702453
+ 0.0267115  0.02682734 0.02695435 0.0274584  0.02673381 0.02704877
+ 0.0271171  0.02711405 0.02685672 0.02676711 0.02723928 0.02740139
+ 0.02734928 0.02676375 0.0270519  0.02727011 0.02710359 0.02695503
+ 0.02730549 0.02695525 0.02712083 0.02694807 0.0268443  0.02677179
+ 0.02723915] v[0]:  [-0.00506584]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  1 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c9c7f0>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  1 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 1 newmoves:  [(0, 1)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(1, 2), (3, 4)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(4, 3)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(0, 1), (4, 3), (3, 4), (1, 2)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(0, 1), (4, 3), (3, 4), (1, 2)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00506584]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00506584]
+MCTS.py==>search  returning value of canonical board -v:  [0.00506584]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  27 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 3) action/self.n:  4 action%self.n:  3
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  27 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  16 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 4) action/self.n:  2 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  16 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02676621 0.02696479 0.0268518  0.0273325  0.0268668  0.02740966
+  0.02711109 0.02695936 0.02731913 0.02724246 0.02676559 0.02706472
+  0.02686452 0.02673126 0.02709506 0.02742283 0.02667801 0.02709565
+  0.02711342 0.02706373 0.02691307 0.02678014 0.02710919 0.02738992
+  0.02717061 0.02680621 0.02703416 0.02713983 0.02711958 0.0267672
+  0.02725117 0.02692098 0.02699319 0.0271184  0.02674812 0.02688867
+  0.02713096]] v:  [[-0.00798585]]
+NNet.py==>predict- returns values  pi[0]:  [0.02676621 0.02696479 0.0268518  0.0273325  0.0268668  0.02740966
+ 0.02711109 0.02695936 0.02731913 0.02724246 0.02676559 0.02706472
+ 0.02686452 0.02673126 0.02709506 0.02742283 0.02667801 0.02709565
+ 0.02711342 0.02706373 0.02691307 0.02678014 0.02710919 0.02738992
+ 0.02717061 0.02680621 0.02703416 0.02713983 0.02711958 0.0267672
+ 0.02725117 0.02692098 0.02699319 0.0271184  0.02674812 0.02688867
+ 0.02713096] v[0]:  [-0.00798585]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(1, 2), (1, 4)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(1, 1), (1, 3), (1, 5)]
+OthelloLogic.py==>get_legal_moves for position:  4 , 3 newmoves:  []
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 2), (1, 3), (1, 4), (1, 5), (1, 1)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 2), (1, 3), (1, 4), (1, 5), (1, 1)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00798585]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00798585]
+MCTS.py==>search  returning value of canonical board -v:  [0.00798585]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  22 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (3, 4) action/self.n:  3 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  22 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  16 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 4) action/self.n:  2 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  16 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02687721 0.02687206 0.02672088 0.02729779 0.02689836 0.02738708
+  0.02717359 0.02691007 0.02722028 0.02725237 0.02684463 0.02701695
+  0.02687049 0.02668373 0.02703799 0.02752931 0.0266412  0.02709175
+  0.02722631 0.02711849 0.02691282 0.02689586 0.02699204 0.0274535
+  0.02719694 0.02679758 0.02695106 0.02722261 0.02719868 0.02680372
+  0.02722065 0.02687742 0.02693946 0.02708836 0.0268697  0.02682224
+  0.02708684]] v:  [[-0.00841811]]
+NNet.py==>predict- returns values  pi[0]:  [0.02687721 0.02687206 0.02672088 0.02729779 0.02689836 0.02738708
+ 0.02717359 0.02691007 0.02722028 0.02725237 0.02684463 0.02701695
+ 0.02687049 0.02668373 0.02703799 0.02752931 0.0266412  0.02709175
+ 0.02722631 0.02711849 0.02691282 0.02689586 0.02699204 0.0274535
+ 0.02719694 0.02679758 0.02695106 0.02722261 0.02719868 0.02680372
+ 0.02722065 0.02687742 0.02693946 0.02708836 0.0268697  0.02682224
+ 0.02708684] v[0]:  [-0.00841811]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(1, 2), (1, 4)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(1, 1), (1, 3), (1, 5)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 4 newmoves:  [(1, 2), (1, 4)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 2), (1, 3), (1, 4), (1, 5), (1, 1)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 2), (1, 3), (1, 4), (1, 5), (1, 1)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00841811]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00841811]
+MCTS.py==>search  returning value of canonical board -v:  [0.00841811]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  8 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 2) action/self.n:  1 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  8 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  9 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 3) action/self.n:  1 action%self.n:  3
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  9 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02668692 0.02692403 0.02681819 0.02721743 0.02689458 0.02719804
+  0.02727965 0.02710794 0.02720803 0.02734667 0.02699907 0.02723692
+  0.02685766 0.02667351 0.02683492 0.02732783 0.02678313 0.02703618
+  0.02704719 0.02703757 0.02699243 0.02703075 0.02699644 0.0274126
+  0.02721826 0.02673019 0.02707938 0.02702446 0.02704102 0.02701793
+  0.02725539 0.02699028 0.02694933 0.026973   0.02671309 0.02691451
+  0.02714563]] v:  [[-0.00602242]]
+NNet.py==>predict- returns values  pi[0]:  [0.02668692 0.02692403 0.02681819 0.02721743 0.02689458 0.02719804
+ 0.02727965 0.02710794 0.02720803 0.02734667 0.02699907 0.02723692
+ 0.02685766 0.02667351 0.02683492 0.02732783 0.02678313 0.02703618
+ 0.02704719 0.02703757 0.02699243 0.02703075 0.02699644 0.0274126
+ 0.02721826 0.02673019 0.02707938 0.02702446 0.02704102 0.02701793
+ 0.02725539 0.02699028 0.02694933 0.026973   0.02671309 0.02691451
+ 0.02714563] v[0]:  [-0.00602242]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  1 , 2 newmoves:  [(3, 4), (1, 4)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 2 newmoves:  [(4, 4), (0, 4), (2, 4)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(1, 4), (3, 4)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(4, 4), (1, 4), (0, 4), (3, 4), (2, 4)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(4, 4), (1, 4), (0, 4), (3, 4), (2, 4)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00602242]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00602242]
+MCTS.py==>search  returning value of canonical board -v:  [0.00602242]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  13 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 1) action/self.n:  2 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  13 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  9 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 3) action/self.n:  1 action%self.n:  3
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0 -1 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  1  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  9 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  1  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  1  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02671638 0.02695179 0.02681166 0.02728801 0.02694208 0.02715898
+  0.02724788 0.02713139 0.02730067 0.0273353  0.02687656 0.02720507
+  0.02680388 0.02677223 0.02677349 0.02733147 0.02685278 0.02710778
+  0.02701261 0.02701112 0.02695419 0.02702207 0.02702234 0.02733217
+  0.02707653 0.02667164 0.02687958 0.02693484 0.02718714 0.02700009
+  0.02730043 0.02708233 0.02699749 0.02698136 0.02684264 0.02691676
+  0.02716729]] v:  [[-0.00927704]]
+NNet.py==>predict- returns values  pi[0]:  [0.02671638 0.02695179 0.02681166 0.02728801 0.02694208 0.02715898
+ 0.02724788 0.02713139 0.02730067 0.0273353  0.02687656 0.02720507
+ 0.02680388 0.02677223 0.02677349 0.02733147 0.02685278 0.02710778
+ 0.02701261 0.02701112 0.02695419 0.02702207 0.02702234 0.02733217
+ 0.02707653 0.02667164 0.02687958 0.02693484 0.02718714 0.02700009
+ 0.02730043 0.02708233 0.02699749 0.02698136 0.02684264 0.02691676
+ 0.02716729] v[0]:  [-0.00927704]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  1  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  1  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 1 newmoves:  []
+OthelloLogic.py==>get_legal_moves for position:  2 , 2 newmoves:  [(4, 4), (0, 4), (2, 4)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(1, 4), (3, 4)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(4, 4), (1, 4), (0, 4), (3, 4), (2, 4)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(4, 4), (1, 4), (0, 4), (3, 4), (2, 4)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00927704]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00927704]
+MCTS.py==>search  returning value of canonical board -v:  [0.00927704]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  27 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 3) action/self.n:  4 action%self.n:  3
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  27 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  28 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 4) action/self.n:  4 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  28 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02676842 0.02690187 0.02689187 0.02728025 0.02694719 0.027477
+  0.0271588  0.02698129 0.02711118 0.02726127 0.02679149 0.02703454
+  0.02671554 0.02688818 0.02702428 0.02744353 0.02676555 0.02692095
+  0.02706734 0.02721844 0.02677236 0.02689733 0.0271259  0.02724576
+  0.02730868 0.02669977 0.02698856 0.02726018 0.02712939 0.02682167
+  0.02730351 0.02689919 0.02701382 0.02696939 0.02681633 0.0269281
+  0.02717112]] v:  [[-0.00706968]]
+NNet.py==>predict- returns values  pi[0]:  [0.02676842 0.02690187 0.02689187 0.02728025 0.02694719 0.027477
+ 0.0271588  0.02698129 0.02711118 0.02726127 0.02679149 0.02703454
+ 0.02671554 0.02688818 0.02702428 0.02744353 0.02676555 0.02692095
+ 0.02706734 0.02721844 0.02677236 0.02689733 0.0271259  0.02724576
+ 0.02730868 0.02669977 0.02698856 0.02726018 0.02712939 0.02682167
+ 0.02730351 0.02689919 0.02701382 0.02696939 0.02681633 0.0269281
+ 0.02717112] v[0]:  [-0.00706968]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(1, 2), (3, 4)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(2, 1)]
+OthelloLogic.py==>get_legal_moves for position:  4 , 3 newmoves:  [(4, 5)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 2), (4, 5), (3, 4), (2, 1)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 2), (4, 5), (3, 4), (2, 1)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00706968]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00706968]
+MCTS.py==>search  returning value of canonical board -v:  [0.00706968]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  22 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (3, 4) action/self.n:  3 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  22 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  26 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 2) action/self.n:  4 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1 -1  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  26 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02683959 0.02691937 0.02670009 0.02724817 0.02689044 0.02749198
+  0.0270869  0.0270191  0.0269037  0.0273531  0.02674453 0.02704279
+  0.02671597 0.02679139 0.02706406 0.02741556 0.02668369 0.02703128
+  0.02731336 0.0272609  0.02713105 0.02686397 0.0271765  0.02756192
+  0.02719822 0.02673654 0.02683147 0.02723942 0.02703463 0.02699905
+  0.02723774 0.02694236 0.02681128 0.02701605 0.0268423  0.02682089
+  0.02704063]] v:  [[-0.00508366]]
+NNet.py==>predict- returns values  pi[0]:  [0.02683959 0.02691937 0.02670009 0.02724817 0.02689044 0.02749198
+ 0.0270869  0.0270191  0.0269037  0.0273531  0.02674453 0.02704279
+ 0.02671597 0.02679139 0.02706406 0.02741556 0.02668369 0.02703128
+ 0.02731336 0.0272609  0.02713105 0.02686397 0.0271765  0.02756192
+ 0.02719822 0.02673654 0.02683147 0.02723942 0.02703463 0.02699905
+ 0.02723774 0.02694236 0.02681128 0.02701605 0.0268423  0.02682089
+ 0.02704063] v[0]:  [-0.00508366]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(4, 1), (2, 1)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(5, 1), (3, 1), (1, 1)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 4 newmoves:  []
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(3, 1), (2, 1), (5, 1), (4, 1), (1, 1)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(3, 1), (2, 1), (5, 1), (4, 1), (1, 1)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00508366]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00508366]
+MCTS.py==>search  returning value of canonical board -v:  [0.00508366]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  8 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 2) action/self.n:  1 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  8 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  19 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (3, 1) action/self.n:  3 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  19 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02676838 0.02700081 0.02693746 0.02716254 0.02679677 0.02732803
+  0.02716626 0.02710898 0.02696444 0.02723815 0.02700858 0.02708137
+  0.0267319  0.02684044 0.02687529 0.02732526 0.02678468 0.02710007
+  0.0270858  0.02729006 0.02689469 0.02703255 0.02703114 0.02726785
+  0.02739705 0.02676867 0.02714559 0.02719291 0.02694245 0.02687673
+  0.02721144 0.02685482 0.0269648  0.02677905 0.02698643 0.02688845
+  0.02717006]] v:  [[-0.00926028]]
+NNet.py==>predict- returns values  pi[0]:  [0.02676838 0.02700081 0.02693746 0.02716254 0.02679677 0.02732803
+ 0.02716626 0.02710898 0.02696444 0.02723815 0.02700858 0.02708137
+ 0.0267319  0.02684044 0.02687529 0.02732526 0.02678468 0.02710007
+ 0.0270858  0.02729006 0.02689469 0.02703255 0.02703114 0.02726785
+ 0.02739705 0.02676867 0.02714559 0.02719291 0.02694245 0.02687673
+ 0.02721144 0.02685482 0.0269648  0.02677905 0.02698643 0.02688845
+ 0.02717006] v[0]:  [-0.00926028]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  1 , 2 newmoves:  []
+OthelloLogic.py==>get_legal_moves for position:  2 , 2 newmoves:  [(4, 4), (4, 2), (4, 0)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(4, 3), (4, 1)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(4, 4), (4, 3), (4, 2), (4, 1), (4, 0)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(4, 4), (4, 3), (4, 2), (4, 1), (4, 0)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00926028]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00926028]
+MCTS.py==>search  returning value of canonical board -v:  [0.00926028]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  27 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 3) action/self.n:  4 action%self.n:  3
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  27 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  26 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 2) action/self.n:  4 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  26 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.0268839  0.02686265 0.02673308 0.02730332 0.0269661  0.02731442
+  0.02710585 0.02713888 0.02680232 0.0273805  0.02681771 0.0269576
+  0.02662316 0.02685764 0.02705247 0.02735431 0.02671381 0.02715838
+  0.02723389 0.02722164 0.02695255 0.02680407 0.02721202 0.02734
+  0.0272174  0.02677112 0.02680645 0.02735603 0.02716405 0.02701427
+  0.02722914 0.02695436 0.0268626  0.02705612 0.02682375 0.02692298
+  0.02703146]] v:  [[-0.00582637]]
+NNet.py==>predict- returns values  pi[0]:  [0.0268839  0.02686265 0.02673308 0.02730332 0.0269661  0.02731442
+ 0.02710585 0.02713888 0.02680232 0.0273805  0.02681771 0.0269576
+ 0.02662316 0.02685764 0.02705247 0.02735431 0.02671381 0.02715838
+ 0.02723389 0.02722164 0.02695255 0.02680407 0.02721202 0.02734
+ 0.0272174  0.02677112 0.02680645 0.02735603 0.02716405 0.02701427
+ 0.02722914 0.02695436 0.0268626  0.02705612 0.02682375 0.02692298
+ 0.02703146] v[0]:  [-0.00582637]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(4, 1), (2, 1)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(5, 1), (3, 1), (1, 1)]
+OthelloLogic.py==>get_legal_moves for position:  4 , 3 newmoves:  [(4, 1), (2, 1)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(3, 1), (2, 1), (5, 1), (4, 1), (1, 1)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(3, 1), (2, 1), (5, 1), (4, 1), (1, 1)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00582637]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00582637]
+MCTS.py==>search  returning value of canonical board -v:  [0.00582637]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  22 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (3, 4) action/self.n:  3 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  22 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  28 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 4) action/self.n:  4 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1  1 -1  0]
+ [ 0  0  0  0  1  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  1  0]
+ [ 0  0  0  0 -1  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  28 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  1  0]
+ [ 0  0  0  0 -1  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  1  0]
+ [ 0  0  0  0 -1  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02688184 0.02685156 0.02676426 0.02721876 0.0269216  0.0275074
+  0.02713755 0.02695568 0.02701333 0.02722807 0.02689181 0.02713759
+  0.02672745 0.02679439 0.02694234 0.02753603 0.02677854 0.02693662
+  0.02721057 0.0270697  0.02690814 0.02687104 0.02706334 0.02731311
+  0.02736107 0.02666696 0.02696024 0.02730415 0.02712449 0.02682144
+  0.02725838 0.02673924 0.02718135 0.02703156 0.02678552 0.0269734
+  0.0271315 ]] v:  [[-0.00226324]]
+NNet.py==>predict- returns values  pi[0]:  [0.02688184 0.02685156 0.02676426 0.02721876 0.0269216  0.0275074
+ 0.02713755 0.02695568 0.02701333 0.02722807 0.02689181 0.02713759
+ 0.02672745 0.02679439 0.02694234 0.02753603 0.02677854 0.02693662
+ 0.02721057 0.0270697  0.02690814 0.02687104 0.02706334 0.02731311
+ 0.02736107 0.02666696 0.02696024 0.02730415 0.02712449 0.02682144
+ 0.02725838 0.02673924 0.02718135 0.02703156 0.02678552 0.0269734
+ 0.0271315 ] v[0]:  [-0.00226324]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  1  0]
+ [ 0  0  0  0 -1  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  1  0]
+ [ 0  0  0  0 -1  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(1, 2)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(4, 3), (2, 1)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 4 newmoves:  [(5, 4)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 2), (5, 4), (2, 1), (4, 3)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 2), (5, 4), (2, 1), (4, 3)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00226324]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00226324]
+MCTS.py==>search  returning value of canonical board -v:  [0.00226324]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  13 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 1) action/self.n:  2 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  13 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  19 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (3, 1) action/self.n:  3 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  19 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02684534 0.0269119  0.02688807 0.02707661 0.02687246 0.02732055
+  0.02714518 0.02708199 0.02694453 0.02729039 0.02688397 0.02704806
+  0.02693827 0.02680447 0.02692027 0.02733189 0.02677331 0.02707978
+  0.0269897  0.02717234 0.02696789 0.02700335 0.02707885 0.02723012
+  0.02737211 0.02685939 0.02716781 0.02721861 0.0269542  0.02693781
+  0.02721301 0.02692204 0.02702504 0.02686425 0.02692739 0.02686727
+  0.02707183]] v:  [[-0.01220648]]
+NNet.py==>predict- returns values  pi[0]:  [0.02684534 0.0269119  0.02688807 0.02707661 0.02687246 0.02732055
+ 0.02714518 0.02708199 0.02694453 0.02729039 0.02688397 0.02704806
+ 0.02693827 0.02680447 0.02692027 0.02733189 0.02677331 0.02707978
+ 0.0269897  0.02717234 0.02696789 0.02700335 0.02707885 0.02723012
+ 0.02737211 0.02685939 0.02716781 0.02721861 0.0269542  0.02693781
+ 0.02721301 0.02692204 0.02702504 0.02686425 0.02692739 0.02686727
+ 0.02707183] v[0]:  [-0.01220648]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 1 newmoves:  [(4, 3), (4, 1)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 2 newmoves:  [(4, 4), (4, 2), (4, 0)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(4, 3), (4, 1)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(4, 4), (4, 3), (4, 2), (4, 1), (4, 0)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(4, 4), (4, 3), (4, 2), (4, 1), (4, 0)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.01220648]
+MCTS.py==>search  returning value of canonical board -v:  [-0.01220648]
+MCTS.py==>search  returning value of canonical board -v:  [0.01220648]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  8 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 2) action/self.n:  1 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  8 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  19 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (3, 1) action/self.n:  3 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  19 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  24 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 0) action/self.n:  4 action%self.n:  0
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  1 -1 -1  0  0]
+ [ 1  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0 -1  1  1  0  0]
+ [-1  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  24 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0 -1  1  1  0  0]
+ [-1  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0 -1  1  1  0  0]
+ [-1  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02684839 0.02691484 0.02681341 0.02724948 0.02689198 0.02734461
+  0.0272319  0.02710945 0.02723882 0.02727424 0.02686016 0.02700639
+  0.02684614 0.02662361 0.0271027  0.0274289  0.02659223 0.02707976
+  0.02718502 0.02699242 0.02686969 0.0270392  0.02700617 0.02740631
+  0.0271827  0.02674883 0.02687291 0.02719262 0.02726742 0.02694106
+  0.02729156 0.02691463 0.02707727 0.0270839  0.02677441 0.02674516
+  0.02695181]] v:  [[-0.0072775]]
+NNet.py==>predict- returns values  pi[0]:  [0.02684839 0.02691484 0.02681341 0.02724948 0.02689198 0.02734461
+ 0.0272319  0.02710945 0.02723882 0.02727424 0.02686016 0.02700639
+ 0.02684614 0.02662361 0.0271027  0.0274289  0.02659223 0.02707976
+ 0.02718502 0.02699242 0.02686969 0.0270392  0.02700617 0.02740631
+ 0.0271827  0.02674883 0.02687291 0.02719262 0.02726742 0.02694106
+ 0.02729156 0.02691463 0.02707727 0.0270839  0.02677441 0.02674516
+ 0.02695181] v[0]:  [-0.0072775]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0 -1  1  1  0  0]
+ [-1  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0 -1  1  1  0  0]
+ [-1  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(3, 0), (0, 2), (1, 4)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(1, 1), (1, 3)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 3), (3, 0), (0, 2), (1, 4), (1, 1)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 3), (3, 0), (0, 2), (1, 4), (1, 1)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 1 0 0 0 0 1 0 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 1 0 0 0 0 1 0 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.0072775]
+MCTS.py==>search  returning value of canonical board -v:  [-0.0072775]
+MCTS.py==>search  returning value of canonical board -v:  [0.0072775]
+MCTS.py==>search  returning value of canonical board -v:  [-0.0072775]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  22 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (3, 4) action/self.n:  3 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  22 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  26 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 2) action/self.n:  4 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1 -1  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  26 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  7 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 1) action/self.n:  1 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  1  0  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1 -1  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  7 next_s:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1 -1  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1 -1  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02667104 0.02696593 0.02679982 0.02711864 0.02683607 0.0273187
+  0.02725836 0.0269738  0.02707473 0.02719934 0.02699752 0.02697003
+  0.02674967 0.02685544 0.02708832 0.02732085 0.0265898  0.02714298
+  0.02727873 0.02712943 0.02687132 0.02676311 0.02705403 0.02749647
+  0.02741453 0.02655168 0.0270855  0.02729603 0.02704435 0.02706586
+  0.02728578 0.02687856 0.0271215  0.02688957 0.02678533 0.02687314
+  0.02718413]] v:  [[-0.00516628]]
+NNet.py==>predict- returns values  pi[0]:  [0.02667104 0.02696593 0.02679982 0.02711864 0.02683607 0.0273187
+ 0.02725836 0.0269738  0.02707473 0.02719934 0.02699752 0.02697003
+ 0.02674967 0.02685544 0.02708832 0.02732085 0.0265898  0.02714298
+ 0.02727873 0.02712943 0.02687132 0.02676311 0.02705403 0.02749647
+ 0.02741453 0.02655168 0.0270855  0.02729603 0.02704435 0.02706586
+ 0.02728578 0.02687856 0.0271215  0.02688957 0.02678533 0.02687314
+ 0.02718413] v[0]:  [-0.00516628]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1 -1  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1 -1  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(1, 2), (1, 4), (3, 5)]
+OthelloLogic.py==>get_legal_moves for position:  4 , 2 newmoves:  [(2, 4)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 2), (2, 4), (1, 4), (3, 5)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 2), (2, 4), (1, 4), (3, 5)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00516628]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00516628]
+MCTS.py==>search  returning value of canonical board -v:  [0.00516628]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00516628]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  27 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 3) action/self.n:  4 action%self.n:  3
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  27 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  28 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 4) action/self.n:  4 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  28 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  8 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 2) action/self.n:  1 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  8 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02681656 0.02683101 0.02674101 0.02725415 0.02678743 0.02720735
+  0.02718429 0.02714025 0.02695058 0.02720673 0.02696616 0.02704766
+  0.02683692 0.02679007 0.02692209 0.02739288 0.02661761 0.02710233
+  0.02729193 0.02698937 0.02705845 0.02690036 0.02721854 0.0274594
+  0.02722912 0.02663521 0.02701255 0.02719017 0.02713382 0.02704025
+  0.02742041 0.02693614 0.02692466 0.0271029  0.02690042 0.02672238
+  0.02703885]] v:  [[-0.0127354]]
+NNet.py==>predict- returns values  pi[0]:  [0.02681656 0.02683101 0.02674101 0.02725415 0.02678743 0.02720735
+ 0.02718429 0.02714025 0.02695058 0.02720673 0.02696616 0.02704766
+ 0.02683692 0.02679007 0.02692209 0.02739288 0.02661761 0.02710233
+ 0.02729193 0.02698937 0.02705845 0.02690036 0.02721854 0.0274594
+ 0.02722912 0.02663521 0.02701255 0.02719017 0.02713382 0.02704025
+ 0.02742041 0.02693614 0.02692466 0.0271029  0.02690042 0.02672238
+ 0.02703885] v[0]:  [-0.0127354]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(5, 3), (3, 1), (1, 1), (1, 3)]
+OthelloLogic.py==>get_legal_moves for position:  4 , 4 newmoves:  [(4, 2)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 3), (3, 1), (4, 2), (1, 1), (5, 3)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 3), (3, 1), (4, 2), (1, 1), (5, 3)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.0127354]
+MCTS.py==>search  returning value of canonical board -v:  [-0.0127354]
+MCTS.py==>search  returning value of canonical board -v:  [0.0127354]
+MCTS.py==>search  returning value of canonical board -v:  [-0.0127354]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  13 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 1) action/self.n:  2 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  13 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  19 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (3, 1) action/self.n:  3 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  19 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  24 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 0) action/self.n:  4 action%self.n:  0
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  1 -1 -1  0  0]
+ [ 1  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0 -1  1  1  0  0]
+ [-1  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  24 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0 -1  1  1  0  0]
+ [-1  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0 -1  1  1  0  0]
+ [-1  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02695279 0.02680449 0.02677671 0.02722143 0.02686085 0.02745323
+  0.02719417 0.0270938  0.027202   0.0272693  0.026887   0.02699056
+  0.02695585 0.02665696 0.02707246 0.02747124 0.02656917 0.02707474
+  0.02726267 0.02705214 0.02685158 0.02694025 0.02714076 0.02744266
+  0.02708757 0.02667051 0.02684648 0.02724678 0.02725687 0.02686612
+  0.02727089 0.02697274 0.0270055  0.02703837 0.02674375 0.02680191
+  0.02699568]] v:  [[-0.00509107]]
+NNet.py==>predict- returns values  pi[0]:  [0.02695279 0.02680449 0.02677671 0.02722143 0.02686085 0.02745323
+ 0.02719417 0.0270938  0.027202   0.0272693  0.026887   0.02699056
+ 0.02695585 0.02665696 0.02707246 0.02747124 0.02656917 0.02707474
+ 0.02726267 0.02705214 0.02685158 0.02694025 0.02714076 0.02744266
+ 0.02708757 0.02667051 0.02684648 0.02724678 0.02725687 0.02686612
+ 0.02727089 0.02697274 0.0270055  0.02703837 0.02674375 0.02680191
+ 0.02699568] v[0]:  [-0.00509107]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0 -1  1  1  0  0]
+ [-1  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0 -1  1  1  0  0]
+ [-1  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(3, 0), (1, 0), (1, 2), (1, 4)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(1, 1), (1, 3)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 2), (1, 3), (3, 0), (1, 4), (1, 0), (1, 1)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 2), (1, 3), (3, 0), (1, 4), (1, 0), (1, 1)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00509107]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00509107]
+MCTS.py==>search  returning value of canonical board -v:  [0.00509107]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00509107]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  27 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 3) action/self.n:  4 action%self.n:  3
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  27 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  26 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 2) action/self.n:  4 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  26 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  7 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 1) action/self.n:  1 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  1  0  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  7 next_s:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02678613 0.0269597  0.02672133 0.02713614 0.02682213 0.02731941
+  0.02720885 0.02707537 0.02700845 0.02724728 0.02695648 0.02711708
+  0.02673932 0.02683808 0.02694888 0.0274418  0.02662206 0.02711118
+  0.02719397 0.02709141 0.02691291 0.02687147 0.02705478 0.02746524
+  0.0273121  0.02668541 0.02704015 0.02733703 0.02698292 0.02706108
+  0.02726235 0.02683498 0.02716686 0.02688951 0.0266378  0.02697163
+  0.02716867]] v:  [[-0.00180363]]
+NNet.py==>predict- returns values  pi[0]:  [0.02678613 0.0269597  0.02672133 0.02713614 0.02682213 0.02731941
+ 0.02720885 0.02707537 0.02700845 0.02724728 0.02695648 0.02711708
+ 0.02673932 0.02683808 0.02694888 0.0274418  0.02662206 0.02711118
+ 0.02719397 0.02709141 0.02691291 0.02687147 0.02705478 0.02746524
+ 0.0273121  0.02668541 0.02704015 0.02733703 0.02698292 0.02706108
+ 0.02726235 0.02683498 0.02716686 0.02688951 0.0266378  0.02697163
+ 0.02716867] v[0]:  [-0.00180363]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(5, 4), (1, 2), (1, 4), (3, 4)]
+OthelloLogic.py==>get_legal_moves for position:  4 , 2 newmoves:  [(2, 4), (4, 4)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 2), (5, 4), (4, 4), (1, 4), (3, 4), (2, 4)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 2), (5, 4), (4, 4), (1, 4), (3, 4), (2, 4)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00180363]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00180363]
+MCTS.py==>search  returning value of canonical board -v:  [0.00180363]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00180363]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  8 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 2) action/self.n:  1 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  8 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  9 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 3) action/self.n:  1 action%self.n:  3
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  9 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  4 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (0, 4) action/self.n:  0 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0 -1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  4 next_s:  [[ 0  0  0  0 -1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0 -1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02685771 0.02681284 0.02684333 0.02728386 0.02695564 0.02719233
+  0.02703453 0.02718625 0.0268237  0.02738408 0.02673134 0.02703125
+  0.02678031 0.02691188 0.02693446 0.02742362 0.02676446 0.02710697
+  0.02711828 0.02722902 0.02696325 0.02681495 0.02733049 0.02737577
+  0.02702839 0.02670992 0.02696681 0.027224   0.02709469 0.02703542
+  0.02739999 0.02688617 0.02699347 0.02698543 0.02661531 0.02698297
+  0.02718707]] v:  [[-0.00883137]]
+NNet.py==>predict- returns values  pi[0]:  [0.02685771 0.02681284 0.02684333 0.02728386 0.02695564 0.02719233
+ 0.02703453 0.02718625 0.0268237  0.02738408 0.02673134 0.02703125
+ 0.02678031 0.02691188 0.02693446 0.02742362 0.02676446 0.02710697
+ 0.02711828 0.02722902 0.02696325 0.02681495 0.02733049 0.02737577
+ 0.02702839 0.02670992 0.02696681 0.027224   0.02709469 0.02703542
+ 0.02739999 0.02688617 0.02699347 0.02698543 0.02661531 0.02698297
+ 0.02718707] v[0]:  [-0.00883137]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0 -1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0 -1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(4, 1), (2, 1), (0, 1), (0, 3)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(3, 1), (1, 1)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(0, 1), (3, 1), (2, 1), (0, 3), (4, 1), (1, 1)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(0, 1), (3, 1), (2, 1), (0, 3), (4, 1), (1, 1)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 1 0 1 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 1 0 1 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00883137]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00883137]
+MCTS.py==>search  returning value of canonical board -v:  [0.00883137]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00883137]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  22 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (3, 4) action/self.n:  3 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  22 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  16 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 4) action/self.n:  2 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  16 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  7 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 1) action/self.n:  1 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  1  0  0  0  0]
+ [ 0  0  1 -1 -1  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  7 next_s:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02667021 0.0269611  0.02673034 0.02723719 0.02677442 0.02725655
+  0.02729451 0.02711865 0.02681904 0.02723282 0.02674769 0.02702416
+  0.0267025  0.02685889 0.02688971 0.02733289 0.02686464 0.02704391
+  0.027251   0.02722662 0.02698051 0.02683251 0.02727944 0.02735123
+  0.02732203 0.02673002 0.02711681 0.02725052 0.02686705 0.02699929
+  0.02743173 0.0269253  0.02713539 0.02686244 0.02686667 0.02687468
+  0.02713747]] v:  [[-0.00987144]]
+NNet.py==>predict- returns values  pi[0]:  [0.02667021 0.0269611  0.02673034 0.02723719 0.02677442 0.02725655
+ 0.02729451 0.02711865 0.02681904 0.02723282 0.02674769 0.02702416
+ 0.0267025  0.02685889 0.02688971 0.02733289 0.02686464 0.02704391
+ 0.027251   0.02722662 0.02698051 0.02683251 0.02727944 0.02735123
+ 0.02732203 0.02673002 0.02711681 0.02725052 0.02686705 0.02699929
+ 0.02743173 0.0269253  0.02713539 0.02686244 0.02686667 0.02687468
+ 0.02713747] v[0]:  [-0.00987144]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(4, 5), (4, 3), (4, 1), (2, 1)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 4 newmoves:  [(4, 4), (4, 2)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(4, 5), (4, 4), (2, 1), (4, 3), (4, 2), (4, 1)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(4, 5), (4, 4), (2, 1), (4, 3), (4, 2), (4, 1)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00987144]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00987144]
+MCTS.py==>search  returning value of canonical board -v:  [0.00987144]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00987144]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  13 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 1) action/self.n:  2 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  13 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  9 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 3) action/self.n:  1 action%self.n:  3
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0 -1 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  1  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  9 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  1  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  4 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (0, 4) action/self.n:  0 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  1  0]
+ [ 0  0  0  1  0  0]
+ [ 0  1  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0 -1  0]
+ [ 0  0  0 -1  0  0]
+ [ 0 -1 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  4 next_s:  [[ 0  0  0  0 -1  0]
+ [ 0  0  0 -1  0  0]
+ [ 0 -1 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0 -1  0]
+ [ 0  0  0 -1  0  0]
+ [ 0 -1 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.0268551  0.02687366 0.02682975 0.02738175 0.02692744 0.02723717
+  0.02704553 0.02720401 0.02684415 0.02730107 0.02673129 0.02701735
+  0.02679334 0.02688547 0.02699245 0.02733848 0.02664932 0.0270636
+  0.02725191 0.02721819 0.02686808 0.02686166 0.02729919 0.02733033
+  0.02706184 0.02657988 0.02694417 0.02726366 0.02726194 0.0269278
+  0.02732832 0.02697377 0.02695962 0.02691497 0.02677236 0.02700981
+  0.02720143]] v:  [[-0.00744815]]
+NNet.py==>predict- returns values  pi[0]:  [0.0268551  0.02687366 0.02682975 0.02738175 0.02692744 0.02723717
+ 0.02704553 0.02720401 0.02684415 0.02730107 0.02673129 0.02701735
+ 0.02679334 0.02688547 0.02699245 0.02733848 0.02664932 0.0270636
+ 0.02725191 0.02721819 0.02686808 0.02686166 0.02729919 0.02733033
+ 0.02706184 0.02657988 0.02694417 0.02726366 0.02726194 0.0269278
+ 0.02732832 0.02697377 0.02695962 0.02691497 0.02677236 0.02700981
+ 0.02720143] v[0]:  [-0.00744815]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0 -1  0]
+ [ 0  0  0 -1  0  0]
+ [ 0 -1 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb191c0d5f8>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0 -1  0]
+ [ 0  0  0 -1  0  0]
+ [ 0 -1 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(4, 1), (2, 0), (0, 3)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(3, 1), (1, 1)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(3, 1), (2, 0), (0, 3), (4, 1), (1, 1)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(3, 1), (2, 0), (0, 3), (4, 1), (1, 1)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00744815]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00744815]
+MCTS.py==>search  returning value of canonical board -v:  [0.00744815]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00744815]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>getActionProb self.game.stringRepresentation(canonicalBoard)  s:  b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\xff\xff\xff\xff\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+MCTS.py==>getActionProb returns: probs  counts:  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.0, 0.0, 0.0, 0.0, 0.0, 6.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.0, 0.0, 0.0, 0.0, 0.0, 6.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] probs:  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Coach.py ==>executeEpisode  probability pi:  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] Symmetries sym:  [(array([[ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0, -1,  1,  0,  0],
+       [ 0,  0,  1, -1,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0]]), [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]), (array([[ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  1, -1,  0,  0],
+       [ 0,  0, -1,  1,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0]]), [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]), (array([[ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  1, -1,  0,  0],
+       [ 0,  0, -1,  1,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0]]), [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]), (array([[ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0, -1,  1,  0,  0],
+       [ 0,  0,  1, -1,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0]]), [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]), (array([[ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0, -1,  1,  0,  0],
+       [ 0,  0,  1, -1,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0]]), [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]), (array([[ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  1, -1,  0,  0],
+       [ 0,  0, -1,  1,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0]]), [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]), (array([[ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  1, -1,  0,  0],
+       [ 0,  0, -1,  1,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0]]), [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]), (array([[ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0, -1,  1,  0,  0],
+       [ 0,  0,  1, -1,  0,  0],
+       [ 0,  0,  0,  0,  0,  0],
+       [ 0,  0,  0,  0,  0,  0]]), [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])]
+Coach.py ==>executeEpisode  action:  27
+OthelloGame==>getNextState  param action:  27 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 3) action/self.n:  4 action%self.n:  3
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+Coach.py ==>executeEpisode  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] self.curPlayer:  -1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+Coach.py ==>executeEpisode  canonicalBoard:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  16 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 4) action/self.n:  2 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  16 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  7 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 1) action/self.n:  1 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  1  0  0  0  0]
+ [ 0  0  1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  7 next_s:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02663527 0.02686677 0.02672594 0.02724278 0.02683192 0.02734467
+  0.0272357  0.02712152 0.0268552  0.02731398 0.02666175 0.02713384
+  0.02676888 0.02680263 0.02692104 0.02743278 0.02678573 0.02703881
+  0.02717645 0.02713352 0.02697862 0.02680673 0.0271457  0.02743468
+  0.02724327 0.02684567 0.02714537 0.02732338 0.02683669 0.02700818
+  0.02738246 0.02687965 0.02722093 0.02683131 0.02687556 0.02687919
+  0.02713346]] v:  [[-0.01164333]]
+NNet.py==>predict- returns values  pi[0]:  [0.02663527 0.02686677 0.02672594 0.02724278 0.02683192 0.02734467
+ 0.0272357  0.02712152 0.0268552  0.02731398 0.02666175 0.02713384
+ 0.02676888 0.02680263 0.02692104 0.02743278 0.02678573 0.02703881
+ 0.02717645 0.02713352 0.02697862 0.02680673 0.0271457  0.02743468
+ 0.02724327 0.02684567 0.02714537 0.02732338 0.02683669 0.02700818
+ 0.02738246 0.02687965 0.02722093 0.02683131 0.02687556 0.02687919
+ 0.02713346] v[0]:  [-0.01164333]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb1918cc748>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0 -1  0  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(5, 3), (4, 1), (2, 1)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 4 newmoves:  [(4, 2)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(4, 2), (4, 1), (2, 1), (5, 3)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(4, 2), (4, 1), (2, 1), (5, 3)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.01164333]
+MCTS.py==>search  returning value of canonical board -v:  [-0.01164333]
+MCTS.py==>search  returning value of canonical board -v:  [0.01164333]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  26 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 2) action/self.n:  4 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  26 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  19 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (3, 1) action/self.n:  3 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  19 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02691713 0.02698776 0.02678491 0.02717905 0.02687009 0.02729161
+  0.02731565 0.02712321 0.02702037 0.02735408 0.02699593 0.02719138
+  0.02684502 0.026727   0.02678279 0.02737911 0.02666477 0.0270762
+  0.02694556 0.02701064 0.02690789 0.02707721 0.026994   0.02740203
+  0.02737226 0.02668874 0.02699505 0.0270114  0.02706609 0.02688434
+  0.0273161  0.02689892 0.02706582 0.0269243  0.02694147 0.02692813
+  0.02706399]] v:  [[-0.00799244]]
+NNet.py==>predict- returns values  pi[0]:  [0.02691713 0.02698776 0.02678491 0.02717905 0.02687009 0.02729161
+ 0.02731565 0.02712321 0.02702037 0.02735408 0.02699593 0.02719138
+ 0.02684502 0.026727   0.02678279 0.02737911 0.02666477 0.0270762
+ 0.02694556 0.02701064 0.02690789 0.02707721 0.026994   0.02740203
+ 0.02737226 0.02668874 0.02699505 0.0270114  0.02706609 0.02688434
+ 0.0273161  0.02689892 0.02706582 0.0269243  0.02694147 0.02692813
+ 0.02706399] v[0]:  [-0.00799244]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb1918cc748>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 2 newmoves:  [(4, 4), (4, 0), (2, 4)]
+OthelloLogic.py==>get_legal_moves for position:  4 , 2 newmoves:  [(2, 0), (2, 4), (4, 4)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(2, 0), (4, 4), (2, 4), (4, 0)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(2, 0), (4, 4), (2, 4), (4, 0)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00799244]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00799244]
+MCTS.py==>search  returning value of canonical board -v:  [0.00799244]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  28 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 4) action/self.n:  4 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  28 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  22 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (3, 4) action/self.n:  3 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  22 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02681185 0.02698316 0.02689322 0.02716834 0.02677299 0.02719553
+  0.02720993 0.02728133 0.02708397 0.02726672 0.02696884 0.02705139
+  0.02689525 0.02680822 0.02685777 0.02736691 0.02664222 0.02705858
+  0.02713941 0.02698564 0.02686415 0.02692197 0.02712115 0.02714446
+  0.02718952 0.02684638 0.02697588 0.02706556 0.02703738 0.02710189
+  0.0273291  0.02689105 0.02717201 0.02690526 0.02694996 0.02704374
+  0.02699923]] v:  [[-0.00400204]]
+NNet.py==>predict- returns values  pi[0]:  [0.02681185 0.02698316 0.02689322 0.02716834 0.02677299 0.02719553
+ 0.02720993 0.02728133 0.02708397 0.02726672 0.02696884 0.02705139
+ 0.02689525 0.02680822 0.02685777 0.02736691 0.02664222 0.02705858
+ 0.02713941 0.02698564 0.02686415 0.02692197 0.02712115 0.02714446
+ 0.02718952 0.02684638 0.02697588 0.02706556 0.02703738 0.02710189
+ 0.0273291  0.02689105 0.02717201 0.02690526 0.02694996 0.02704374
+ 0.02699923] v[0]:  [-0.00400204]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb1918cc748>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 2 newmoves:  [(4, 2), (2, 4)]
+OthelloLogic.py==>get_legal_moves for position:  4 , 4 newmoves:  [(4, 2), (2, 4)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(4, 2), (2, 4)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(4, 2), (2, 4)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00400204]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00400204]
+MCTS.py==>search  returning value of canonical board -v:  [0.00400204]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  16 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 4) action/self.n:  2 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  16 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  8 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 2) action/self.n:  1 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  1  0  0  0]
+ [ 0  0  1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  8 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02673834 0.02687163 0.02665816 0.0271763  0.02679965 0.02726761
+  0.02718452 0.02710168 0.02690326 0.02730947 0.02668729 0.02707483
+  0.02674049 0.02684326 0.02691771 0.02744808 0.02675309 0.02706174
+  0.0272593  0.02715795 0.02701897 0.02687501 0.02704343 0.02748051
+  0.02731147 0.02688755 0.02709219 0.02727892 0.02686988 0.02714228
+  0.02732655 0.02690412 0.02714309 0.02686162 0.02687285 0.0268266
+  0.02711051]] v:  [[-0.01007371]]
+NNet.py==>predict- returns values  pi[0]:  [0.02673834 0.02687163 0.02665816 0.0271763  0.02679965 0.02726761
+ 0.02718452 0.02710168 0.02690326 0.02730947 0.02668729 0.02707483
+ 0.02674049 0.02684326 0.02691771 0.02744808 0.02675309 0.02706174
+ 0.0272593  0.02715795 0.02701897 0.02687501 0.02704343 0.02748051
+ 0.02731147 0.02688755 0.02709219 0.02727892 0.02686988 0.02714228
+ 0.02732655 0.02690412 0.02714309 0.02686162 0.02687285 0.0268266
+ 0.02711051] v[0]:  [-0.01007371]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb1918cc748>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0 -1  0  0  0]
+ [ 0  0 -1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 3 newmoves:  [(5, 3), (4, 1), (2, 1), (0, 1)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 4 newmoves:  [(4, 2)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(0, 1), (2, 1), (4, 2), (4, 1), (5, 3)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(0, 1), (2, 1), (4, 2), (4, 1), (5, 3)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.01007371]
+MCTS.py==>search  returning value of canonical board -v:  [-0.01007371]
+MCTS.py==>search  returning value of canonical board -v:  [0.01007371]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  26 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 2) action/self.n:  4 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  26 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  31 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (5, 1) action/self.n:  5 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  1  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0 -1  0  0  0  0]]
+MCTS.py==>search  best_act:  31 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0 -1  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0 -1  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02679208 0.02702504 0.02674798 0.02720615 0.02688298 0.02727323
+  0.02720683 0.02717681 0.02713428 0.02716474 0.02699776 0.02711665
+  0.02679574 0.02669441 0.02682523 0.02734702 0.02651556 0.02698637
+  0.0270878  0.02708757 0.02689479 0.02698958 0.02711813 0.02741462
+  0.0271337  0.02671099 0.02695202 0.02713036 0.02699864 0.02691355
+  0.02744834 0.02697072 0.02716416 0.02687548 0.02697131 0.02704704
+  0.02720227]] v:  [[-0.00197976]]
+NNet.py==>predict- returns values  pi[0]:  [0.02679208 0.02702504 0.02674798 0.02720615 0.02688298 0.02727323
+ 0.02720683 0.02717681 0.02713428 0.02716474 0.02699776 0.02711665
+ 0.02679574 0.02669441 0.02682523 0.02734702 0.02651556 0.02698637
+ 0.0270878  0.02708757 0.02689479 0.02698958 0.02711813 0.02741462
+ 0.0271337  0.02671099 0.02695202 0.02713036 0.02699864 0.02691355
+ 0.02744834 0.02697072 0.02716416 0.02687548 0.02697131 0.02704704
+ 0.02720227] v[0]:  [-0.00197976]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0 -1  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb1918cc748>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0 -1  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 2 newmoves:  [(4, 4), (2, 4)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 2 newmoves:  [(5, 4), (5, 2), (1, 4), (3, 4)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(5, 4), (4, 4), (1, 4), (3, 4), (5, 2), (2, 4)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(5, 4), (4, 4), (1, 4), (3, 4), (5, 2), (2, 4)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 1 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 1 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00197976]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00197976]
+MCTS.py==>search  returning value of canonical board -v:  [0.00197976]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  28 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 4) action/self.n:  4 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  28 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  13 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 1) action/self.n:  2 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  13 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02681969 0.02679591 0.02673417 0.02735673 0.02681834 0.02725377
+  0.02723225 0.02709783 0.02699403 0.02733127 0.02699082 0.02707399
+  0.02685874 0.02674449 0.02701128 0.02750784 0.02663698 0.02705909
+  0.0273218  0.02706447 0.02709419 0.02691589 0.02711827 0.02749948
+  0.02712408 0.02655324 0.02693406 0.02735242 0.02712178 0.02696626
+  0.02729858 0.02692176 0.02687429 0.02695217 0.0268602  0.02674299
+  0.02696689]] v:  [[-0.0115362]]
+NNet.py==>predict- returns values  pi[0]:  [0.02681969 0.02679591 0.02673417 0.02735673 0.02681834 0.02725377
+ 0.02723225 0.02709783 0.02699403 0.02733127 0.02699082 0.02707399
+ 0.02685874 0.02674449 0.02701128 0.02750784 0.02663698 0.02705909
+ 0.0273218  0.02706447 0.02709419 0.02691589 0.02711827 0.02749948
+ 0.02712408 0.02655324 0.02693406 0.02735242 0.02712178 0.02696626
+ 0.02729858 0.02692176 0.02687429 0.02695217 0.0268602  0.02674299
+ 0.02696689] v[0]:  [-0.0115362]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb1918cc748>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(5, 3), (3, 1), (1, 1), (1, 3)]
+OthelloLogic.py==>get_legal_moves for position:  4 , 4 newmoves:  [(4, 2)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 3), (3, 1), (4, 2), (1, 1), (5, 3)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 3), (3, 1), (4, 2), (1, 1), (5, 3)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.0115362]
+MCTS.py==>search  returning value of canonical board -v:  [-0.0115362]
+MCTS.py==>search  returning value of canonical board -v:  [0.0115362]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  16 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 4) action/self.n:  2 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  16 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  9 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 3) action/self.n:  1 action%self.n:  3
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0 -1  1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  1 -1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  9 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  1 -1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  1 -1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02677094 0.02696359 0.02680872 0.02721146 0.02695678 0.02712149
+  0.02723348 0.02723332 0.02695038 0.0272487  0.02696162 0.02723175
+  0.02682012 0.02671128 0.0267794  0.02743109 0.02683936 0.02697379
+  0.02708128 0.02699644 0.02696012 0.02704372 0.02723324 0.02723186
+  0.027201   0.0267748  0.02703893 0.02700629 0.02702805 0.02699456
+  0.02738362 0.02693459 0.02710829 0.02694558 0.02684935 0.0269964
+  0.02694462]] v:  [[-0.0059695]]
+NNet.py==>predict- returns values  pi[0]:  [0.02677094 0.02696359 0.02680872 0.02721146 0.02695678 0.02712149
+ 0.02723348 0.02723332 0.02695038 0.0272487  0.02696162 0.02723175
+ 0.02682012 0.02671128 0.0267794  0.02743109 0.02683936 0.02697379
+ 0.02708128 0.02699644 0.02696012 0.02704372 0.02723324 0.02723186
+ 0.027201   0.0267748  0.02703893 0.02700629 0.02702805 0.02699456
+ 0.02738362 0.02693459 0.02710829 0.02694558 0.02684935 0.0269964
+ 0.02694462] v[0]:  [-0.0059695]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  1 -1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb1918cc748>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  1 -1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 2 newmoves:  [(4, 4), (4, 2), (0, 4)]
+OthelloLogic.py==>get_legal_moves for position:  2 , 4 newmoves:  [(4, 2), (0, 2)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(4, 2), (4, 4), (0, 2), (0, 4)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(4, 2), (4, 4), (0, 2), (0, 4)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.0059695]
+MCTS.py==>search  returning value of canonical board -v:  [-0.0059695]
+MCTS.py==>search  returning value of canonical board -v:  [0.0059695]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  26 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 2) action/self.n:  4 action%self.n:  2
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  26 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  13 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 1) action/self.n:  2 action%self.n:  1
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  1  1  1  0  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  13 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.02685806 0.02682157 0.02664895 0.02717171 0.02689327 0.02719629
+  0.02727572 0.0272198  0.02677466 0.02726456 0.0268233  0.02714426
+  0.02672235 0.02684608 0.02698806 0.02745076 0.02686754 0.02704737
+  0.02712011 0.02715415 0.02707292 0.02692424 0.02723123 0.02745873
+  0.02726754 0.02654549 0.02716637 0.02725289 0.02707954 0.02716692
+  0.02722051 0.02688961 0.02699723 0.02688819 0.02672473 0.02684594
+  0.02697939]] v:  [[-0.00995666]]
+NNet.py==>predict- returns values  pi[0]:  [0.02685806 0.02682157 0.02664895 0.02717171 0.02689327 0.02719629
+ 0.02727572 0.0272198  0.02677466 0.02726456 0.0268233  0.02714426
+ 0.02672235 0.02684608 0.02698806 0.02745076 0.02686754 0.02704737
+ 0.02712011 0.02715415 0.02707292 0.02692424 0.02723123 0.02745873
+ 0.02726754 0.02654549 0.02716637 0.02725289 0.02707954 0.02716692
+ 0.02722051 0.02688961 0.02699723 0.02688819 0.02672473 0.02684594
+ 0.02697939] v[0]:  [-0.00995666]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb1918cc748>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0 -1 -1 -1  0  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  4 , 2 newmoves:  [(1, 2), (2, 4), (4, 4)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 2), (4, 4), (2, 4)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 2), (4, 4), (2, 4)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00995666]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00995666]
+MCTS.py==>search  returning value of canonical board -v:  [0.00995666]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  28 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 4) action/self.n:  4 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1  1  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  28 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1 -1  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  29 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (4, 5) action/self.n:  4 action%self.n:  5
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0  0  1  1  1]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1 -1 -1]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  29 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1 -1 -1]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1 -1 -1]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+NNet.py==>predict  pi:  [[0.0269789  0.02694369 0.02680696 0.02733779 0.02675272 0.02722265
+  0.02717471 0.02723909 0.02702334 0.02726435 0.02689717 0.02706479
+  0.02679026 0.02680042 0.02686491 0.02726112 0.02678888 0.02699832
+  0.02704585 0.02708048 0.0270045  0.02689117 0.02715997 0.02724486
+  0.02712188 0.02666208 0.02701415 0.02714762 0.02708366 0.02693641
+  0.0274231  0.02699881 0.02710526 0.02710423 0.02691312 0.02696374
+  0.02688906]] v:  [[-0.00682557]]
+NNet.py==>predict- returns values  pi[0]:  [0.0269789  0.02694369 0.02680696 0.02733779 0.02675272 0.02722265
+ 0.02717471 0.02723909 0.02702334 0.02726435 0.02689717 0.02706479
+ 0.02679026 0.02680042 0.02686491 0.02726112 0.02678888 0.02699832
+ 0.02704585 0.02708048 0.0270045  0.02689117 0.02715997 0.02724486
+ 0.02712188 0.02666208 0.02701415 0.02714762 0.02708366 0.02693641
+ 0.0274231  0.02699881 0.02710526 0.02710423 0.02691312 0.02696374
+ 0.02688906] v[0]:  [-0.00682557]
+OthelloGame.py==>getValidMoves  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1 -1 -1]
+ [ 0  0  0  0  0  0]] player:  1
+OthelloGame.py==>getValidMoves  self.getActionSize():  37
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b:  <othello.OthelloLogic.Board object at 0x7fb1918cc748>
+OthelloGame.py==>getValidMoves  Board(in OthelloLogic) Object b.pieces:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1 -1  0  0]
+ [ 0  0 -1  1  0  0]
+ [ 0  0  0 -1 -1 -1]
+ [ 0  0  0  0  0  0]]
+OthelloLogic.py==>get_legal_moves for position:  2 , 2 newmoves:  [(4, 2), (2, 4)]
+OthelloLogic.py==>get_legal_moves for position:  3 , 3 newmoves:  [(5, 5), (5, 3), (3, 1), (1, 3)]
+OthelloLogic.py==>get_legal_moves returns: list moves:  [(1, 3), (5, 5), (3, 1), (4, 2), (2, 4), (5, 3)]
+OthelloGame.py==>getValidMoves  player:  1 legalMoves:  [(1, 3), (5, 5), (3, 1), (4, 2), (2, 4), (5, 3)]
+OthelloGame.py==>getValidMoves  returns: valids array:  [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 1 0]
+MCTS.py==>search  valid moves returned by getValidMoves():  [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 1 0]
+MCTS.py==>search  returning value of canonical board -v:  [0.00682557]
+MCTS.py==>search  returning value of canonical board -v:  [-0.00682557]
+MCTS.py==>search  returning value of canonical board -v:  [0.00682557]
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  16 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (2, 4) action/self.n:  2 action%self.n:  4
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0  1  1  1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  16 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  0]
+ [ 0  0 -1 -1 -1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+MCTS.py==>search  self.Es[s]:  0
+OthelloGame==>getNextState  param action:  11 self.n*self.n:  36
+OthelloGame==>getNextState  move:  (1, 5) action/self.n:  1 action%self.n:  5
+OthelloGame.py==>getCanonicalForm  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0  1]
+ [ 0  0 -1 -1  1  0]
+ [ 0  0  1  1  0  0]
+ [ 0  0  0  1  0  0]
+ [ 0  0  0  0  0  0]] player:  -1
+OthelloGame.py==>getCanonicalForm  returns:  player*board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0 -1]
+ [ 0  0  1  1 -1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]]
+MCTS.py==>search  best_act:  11 next_s:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0 -1]
+ [ 0  0  1  1 -1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] next_player -1
+OthelloGame.py==>stringRepresentation  returns:  board.tostring() 
+OthelloGame.py==>getGameEnded  parms:  board:  [[ 0  0  0  0  0  0]
+ [ 0  0  0  0  0 -1]
+ [ 0  0  1  1 -1  0]
+ [ 0  0 -1 -1  0  0]
+ [ 0  0  0 -1  0  0]
+ [ 0  0  0  0  0  0]] player:  1
+MCTS.py==>search  self.Es[s]:  0
+^CTraceback (most recent call last):
+  File "main.py", line 35, in <module>
+    c.learn()
+  File "/home/saurabh/Desktop/seminar-project/alpha-zero-general/Coach.py", line 96, in learn
+    iterationTrainExamples += self.executeEpisode()
+  File "/home/saurabh/Desktop/seminar-project/alpha-zero-general/Coach.py", line 55, in executeEpisode
+    pi = self.mcts.getActionProb(canonicalBoard, temp=temp)
+  File "/home/saurabh/Desktop/seminar-project/alpha-zero-general/MCTS.py", line 31, in getActionProb
+    self.search(canonicalBoard)
+  File "/home/saurabh/Desktop/seminar-project/alpha-zero-general/MCTS.py", line 124, in search
+    v = self.search(next_s)
+  File "/home/saurabh/Desktop/seminar-project/alpha-zero-general/MCTS.py", line 124, in search
+    v = self.search(next_s)
+  File "/home/saurabh/Desktop/seminar-project/alpha-zero-general/MCTS.py", line 82, in search
+    self.Ps[s], v = self.nnet.predict(canonicalBoard)
+  File "/home/saurabh/Desktop/seminar-project/alpha-zero-general/othello/keras/NNet.py", line 53, in predict
+    pi, v = self.nnet.model.predict(board)
+  File "/usr/local/lib/python3.6/site-packages/keras/engine/training.py", line 1842, in predict
+    verbose=verbose, steps=steps)
+  File "/usr/local/lib/python3.6/site-packages/keras/engine/training.py", line 1337, in _predict_loop
+    batch_outs = f(ins_batch)
+  File "/usr/local/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py", line 2475, in __call__
+    **self.session_kwargs)
+  File "/usr/local/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 895, in run
+    run_metadata_ptr)
+  File "/usr/local/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1128, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/usr/local/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1344, in _do_run
+    options, run_metadata)
+  File "/usr/local/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1350, in _do_call
+    return fn(*args)
+  File "/usr/local/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1329, in _run_fn
+    status, run_metadata)
+KeyboardInterrupt
+saurabh@saurabh-ThinkPad-T440p:~/Desktop/seminar-project/alpha-zero-general$ BBBBB
+
