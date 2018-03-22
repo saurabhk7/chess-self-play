@@ -26,12 +26,12 @@ class OthelloGame(Game):
     def getNextState(self, board, player, action):
         # if player takes action on board, return next (board,player)
         # action must be a valid move
-        print('OthelloGame==>getNextState ','param action: ', action, 'self.n*self.n: ', self.n*self.n)
-        if action == self.n*self.n:
-        	return (board, -player)
+        print('OthelloGame==>getNextState ','param action number: ', action, 'self.n*self.n: ', self.n*self.n)
+        if action == self.n*self.n: #it means there is no valid action possible therefore just change the player
+        	return (board, -player) #36+1 (valid board moves + no moves possible flag :  indexed 0-36)
         b = Board(self.n)
         b.pieces = np.copy(board)
-        move = (int(action/self.n), action%self.n)
+        move = (int(action/self.n), action%self.n) #to convert the wrapped around vector index to 2D matrix(board) index
         print('OthelloGame==>getNextState ','move: ', str(move),'action/self.n: ', int(action/self.n), 'action%self.n: ', action%self.n)
 
         b.execute_move(move, player)

@@ -16,13 +16,13 @@ class Coach():
     def __init__(self, game, nnet, args):
         self.game = game #object of OthelloGame
         self.nnet = nnet
-        self.pnet = self.nnet.__class__(self.game)  # the competitor network
+        self.pnet = self.nnet.__class__(self.game)  # the competitor network - parent network(to validate selfplay model after learning)
         self.args = args
         self.mcts = MCTS(self.game, self.nnet, self.args) #returns the MCTS object
         self.trainExamplesHistory = []    # history of examples from args.numItersForTrainExamplesHistory latest iterations
         self.skipFirstSelfPlay = False # can be overriden in loadTrainExamples()
 
-    def executeEpisode(self):
+    def executeEpisode(self): #one episode is one physical move on the board
         """
         This function executes one episode of self-play, starting with player 1.
         As the game is played, each turn is added as a training example to
@@ -48,11 +48,14 @@ class Coach():
             episodeStep += 1
             print ('Coach.py ==>executeEpisode ', 'board: ', board, 'self.curPlayer: ', self.curPlayer)
             canonicalBoard = self.game.getCanonicalForm(board,self.curPlayer) #gets the canonical board
-            print ('Coach.py ==>executeEpisode ', 'canonicalBoard: ', canonicalBoard)
+            print ('Coach.py ==>executeEpisode ', 'canonicalBoard: ', canonicalBoard) #canonical = player*board matrix
 
-            temp = int(episodeStep < self.args.tempThreshold)
+            temp = int(episodeStep < self.args.tempThreshold) #tempThreshold: 15
+            #temp is the temperature and controls the degree of exploration.
+            #temp = 1 till num eps == 15 (threshold, simply the normalised counts) after that,
+            #temp = 0 (picking the move with the maximum counts) (greedy)
 
-            pi = self.mcts.getActionProb(canonicalBoard, temp=temp)
+            pi = self.mcts.getActionProb(canonicalBoard, temp=temp) #gets action probabilties
             sym = self.game.getSymmetries(canonicalBoard, pi)
             print ('Coach.py ==>executeEpisode ', 'probability pi: ', pi, 'Symmetries sym: ', sym)
 
@@ -61,6 +64,8 @@ class Coach():
 
             action = np.random.choice(len(pi), p=pi) #Generates a random sample from a given 1-D array
             print ('Coach.py ==>executeEpisode ', 'action: ', action)
+
+            #NOW MAKE THE ACTUAL PHYSICAL SUPER DUPER FINAL MOVE of MCTS by analysing MCTS
 
             board, self.curPlayer = self.game.getNextState(board, self.curPlayer, action)
 
@@ -96,7 +101,7 @@ class Coach():
                     iterationTrainExamples += self.executeEpisode()
                     print ('Coach.py==>learn ', 'added to iterationTrainExamples deque self.executeEpisode(): ', self.executeEpisode())
 
-                    # bookkeeping + plot progress
+                    # bookkeeping + plot progress :surag
                     eps_time.update(time.time() - end)
                     end = time.time()
                     bar.suffix  = '({eps}/{maxeps}) Eps Time: {et:.3f}s | Total: {total:} | ETA: {eta:}'.format(eps=eps+1, maxeps=self.args.numEps, et=eps_time.avg,
@@ -107,7 +112,7 @@ class Coach():
                 # save the iteration examples to the history
                 self.trainExamplesHistory.append(iterationTrainExamples)
 
-            if len(self.trainExamplesHistory) > self.args.numItersForTrainExamplesHistory:
+            if len(self.trainExamplesHistory) > self.args.numItersForTrainExamplesHistory: #numItersForTrainExamplesHistory: 
                 print('Coach.py==>learn ',' BEFORE REMOVING self.trainExamplesHistory: ', self.trainExamplesHistory)
                 print("len(trainExamplesHistory) =", len(self.trainExamplesHistory), " => remove the oldest trainExamples")
                 self.trainExamplesHistory.pop(0)
