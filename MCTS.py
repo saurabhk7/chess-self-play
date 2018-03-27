@@ -5,6 +5,7 @@ class MCTS():
     """
     This class handles the MCTS tree.
     """
+    recurs_n = 0
 
     def __init__(self, game, nnet, args):
         self.game = game
@@ -14,6 +15,7 @@ class MCTS():
         self.Nsa = {}       # stores #times edge s,a was visited
         self.Ns = {}        # stores #times board s was visited
         self.Ps = {}        # stores initial policy (returned by neural net)
+        self.Rs = {}        # stores the times the particular board state occured in the game
 
         self.Es = {}        # stores game.getGameEnded ended for board s
         self.Vs = {}        # stores game.getValidMoves for board s
@@ -28,6 +30,8 @@ class MCTS():
                    proportional to Nsa[(s,a)]**(1./temp)
         """
         for i in range(self.args.numMCTSSims): #numMCTSSims: 25 -- bored factor (ref. udacity)
+            print("NEXT ITER numMCTSSims")
+            #canonicalBoard.turn = True
             self.search(canonicalBoard)
 
         #NOW MAKE THE ACTUAL FINAL MOVE of MCTS by analysing MCTS
@@ -36,17 +40,23 @@ class MCTS():
         print('MCTS.py==>getActionProb self.game.stringRepresentation(canonicalBoard) ','s: ', s)
 
         counts = [self.Nsa[(s,a)] if (s,a) in self.Nsa else 0 for a in range(self.game.getActionSize())]
+        print(len(counts))
         #counts array represent the number of time each action edge from your current state was traversed
 
         if temp==0: #temprature is 0 representing taking the best action possible (greedy)
             bestA = np.argmax(counts) #bestA: best action number : argmax Returns the indices of the maximum values
+            cnt = 0
+            for c in counts:
+                if c:
+                    print("CNT NUM: ", cnt, "COUNT: ", c)
+                cnt+=1
             probs = [0]*len(counts)
             probs[bestA]=1
             return probs #returns the definite move(s) with same greedy reward, out of which one move HAS to be played
 
         counts = [x**(1./temp) for x in counts]
         probs = [x/float(sum(counts)) for x in counts]
-        print('MCTS.py==>getActionProb returns: probs ','counts: ',counts,'probs: ', probs)
+        #print('MCTS.py==>getActionProb returns: probs ','counts: ',counts,'probs: ', probs)
         return probs #returns the probablity of different moves that CAN be played resulting in uniform distribution
 
 
@@ -71,9 +81,12 @@ class MCTS():
         """
 
         s = self.game.stringRepresentation(canonicalBoard)
+        print("sssssss: ",s)
         # s represents the state of the board as a string
-
+        self.recurs_n+=1
+        print("NUMBER RECUSRIONS: ", self.recurs_n)
         if s not in self.Es:
+            print("ssssssss2")
             self.Es[s] = self.game.getGameEnded(canonicalBoard, 1)
             #Es :  'end state' array : maps the state string 's' to -1, 0 , 1 to check if the state s is end state
             #-1: Black has won : End state
@@ -86,17 +99,26 @@ class MCTS():
             print('MCTS.py==>search ', 'Game ended returning: -self.Es[s]: ', -self.Es[s])
             return -self.Es[s]
 
-        if s not in self.Ps: #if the current state 's' is not explored/expanded before n=0 by MCTS then create a new node and rollout
 
+        #print("SELF.PSsss: ", self.Ps)
+        if s not in self.Ps: #if the current state 's' is not explored/expanded before n=0 by MCTS then create a new node and rollout
+            #ERRRRRRRRROOOORRRRRRRRRRRRRRRRRRRRRRRRRR never going inside
             #If it does not exist, we create a new node in our tree and initialize its
             #P (s, ·) = p ~ θ (s) and the expected reward v = v θ (s) from
             #our neural network, and initialize Q(s, a) and N (s, a)
             #to 0 for all a ==>leaf node wrt current half explored MCTS
+            print("ssssssss3")
 
             self.Ps[s], v = self.nnet.predict(canonicalBoard)
             valids = self.game.getValidMoves(canonicalBoard, 1)
             print('MCTS.py==>search ', 'valid moves returned by getValidMoves(): ', valids)
             self.Ps[s] = self.Ps[s]*valids      # masking invalid moves i.e the policies from the policy vector which are useless validmove = 0
+            i = 0
+            for pol in self.Ps[s]:
+                if pol:
+                    print("POLICY: ",i," : ", pol)
+                i+=1
+            self.Rs[s] = 20
             sum_Ps_s = np.sum(self.Ps[s])
             if sum_Ps_s > 0:
                 self.Ps[s] /= sum_Ps_s    # renormalize
@@ -114,23 +136,40 @@ class MCTS():
             print('MCTS.py==>search ', 'returning value of canonical board -v: ', -v)
             return -v
 
+
         valids = self.Vs[s] #as already visited the valid moves array 'Vs' is already initialized
         cur_best = -float('inf')
         best_act = -1
 
+        print("Bahar ka valids: ")
+        co = 0
+        for v in valids:
+            if v:
+                 print("co: ",co," : ", v)
+            co+=1
+
         # pick the action with the highest upper confidence bound
         for a in range(self.game.getActionSize()):
             if valids[a]:
-                if (s,a) in self.Qsa:
+                if (s,a) in self.Qsa:  # stores Q values for s,a (as defined in the paper) expected reward for raking that action
                     u = self.Qsa[(s,a)] + self.args.cpuct*self.Ps[s][a]*math.sqrt(self.Ns[s])/(1+self.Nsa[(s,a)])
+                    print("uuuuu1: ", u)
                 else:
                     u = self.args.cpuct*self.Ps[s][a]*math.sqrt(self.Ns[s])     # Q = 0 ? : node exists but not explored as added and initilized during nnet phase
-
-                if u > cur_best:
+                    print("uuuuu2: ", u)
+                if u > cur_best: #and self.Rs[s]>0:
+                    print("in if")
                     cur_best = u
                     best_act = a
+                    print("in if  cur_best: ", cur_best, "best_act: ", best_act)
+                # if not self.Rs[s]>0:
+                    # print("self.Rs[s]")
+            # else:
+                # print("i. else")
 
+        self.Rs[s]-=1
         a = best_act
+        print ('a: ', a)
         next_s, next_player = self.game.getNextState(canonicalBoard, 1, a) #next node in MCTS is selected greedily as we had the policies for that node
         next_s = self.game.getCanonicalForm(next_s, next_player) #TODO: chess board symmetry issue
         print('MCTS.py==>search ', 'best_act: ', a,'next_s: ',next_s,'next_player', next_player)
@@ -147,5 +186,5 @@ class MCTS():
             self.Nsa[(s,a)] = 1
 
         self.Ns[s] += 1
-        print('MCTS.py==>search ', 'returning value of canonical board -v: ', -v)
+        print('MCTS.py==>search ', 'returning value of canonical board -v2: ', -v)
         return -v

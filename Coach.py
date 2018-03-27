@@ -6,6 +6,7 @@ from pytorch_classification.utils import Bar, AverageMeter
 import time, os, sys
 from pickle import Pickler, Unpickler
 from random import shuffle
+from chess.pythonchess import chess as chess
 
 
 class Coach():
@@ -41,6 +42,8 @@ class Coach():
         print ('Coach.py ==>executeEpisode')
         trainExamples = []
         board = self.game.getInitBoard()
+        print ('chessboard chess-pgn object: ', board)
+        print('-----------************----------')
         self.curPlayer = 1
         episodeStep = 0
 
@@ -56,23 +59,33 @@ class Coach():
             #temp = 0 (picking the move with the maximum counts) (greedy)
 
             pi = self.mcts.getActionProb(canonicalBoard, temp=temp) #gets action probabilties
+            pin = 0
+            for p in pi:
+                if p:
+                    print("IND: ", pin, "PI: ", p)
+                pin+=1
             sym = self.game.getSymmetries(canonicalBoard, pi)
-            print ('Coach.py ==>executeEpisode ', 'probability pi: ', pi, 'Symmetries sym: ', sym)
+            # print ('Coach.py ==>executeEpisode ', 'probability pi: ', pi, 'Symmetries sym: ', sym)
 
+            # for b,p in sym:
+            #     trainExamples.append([b, self.curPlayer, p, None])
             for b,p in sym:
-                trainExamples.append([b, self.curPlayer, p, None])
+                X = np.array([self.bb2array(b)])
+                matrix2d = self.vector2matrix(X[0])
 
+                trainExamples.append([matrix2d, self.curPlayer, p, None])
             action = np.random.choice(len(pi), p=pi) #Generates a random sample from a given 1-D array
             print ('Coach.py ==>executeEpisode ', 'action: ', action)
 
             #NOW MAKE THE ACTUAL PHYSICAL SUPER DUPER FINAL MOVE of MCTS by analysing MCTS
 
             board, self.curPlayer = self.game.getNextState(board, self.curPlayer, action)
-
+            print("FINAL SELECTED MOVE NEW BOARD: ", board, "TURN: ", board.turn)
             r = self.game.getGameEnded(board, self.curPlayer)
 
             if r!=0:
-                print ('Coach.py ==>executeEpisode ', 'returns: ', [(x[0],x[2],r*((-1)**(x[1]!=self.curPlayer))) for x in trainExamples])
+                print("r: ", r)
+                print ('Coach.py ==>executeEpisode ', 'returns: ')#, [(x[0],x[2],r*((-1)**(x[1]!=self.curPlayer))) for x in trainExamples])
                 return [(x[0],x[2],r*((-1)**(x[1]!=self.curPlayer))) for x in trainExamples]
 
     def learn(self):
@@ -99,7 +112,7 @@ class Coach():
                 for eps in range(self.args.numEps): #number of epochs=2
                     self.mcts = MCTS(self.game, self.nnet, self.args)   # reset search tree
                     iterationTrainExamples += self.executeEpisode()
-                    print ('Coach.py==>learn ', 'added to iterationTrainExamples deque self.executeEpisode(): ', self.executeEpisode())
+                    # print ('Coach.py==>learn ', 'added to iterationTrainExamples deque self.executeEpisode(): ', self.executeEpisode())
 
                     # bookkeeping + plot progress :surag
                     eps_time.update(time.time() - end)
@@ -112,11 +125,11 @@ class Coach():
                 # save the iteration examples to the history
                 self.trainExamplesHistory.append(iterationTrainExamples)
 
-            if len(self.trainExamplesHistory) > self.args.numItersForTrainExamplesHistory: #numItersForTrainExamplesHistory: 
-                print('Coach.py==>learn ',' BEFORE REMOVING self.trainExamplesHistory: ', self.trainExamplesHistory)
-                print("len(trainExamplesHistory) =", len(self.trainExamplesHistory), " => remove the oldest trainExamples")
+            if len(self.trainExamplesHistory) > self.args.numItersForTrainExamplesHistory: #numItersForTrainExamplesHistory:
+                # print('Coach.py==>learn ',' BEFORE REMOVING self.trainExamplesHistory: ', self.trainExamplesHistory)
+                # print("len(trainExamplesHistory) =", len(self.trainExamplesHistory), " => remove the oldest trainExamples")
                 self.trainExamplesHistory.pop(0)
-                print('Coach.py==>learn ',' AFTER REMOVING self.trainExamplesHistory: ', self.trainExamplesHistory)
+                # print('Coach.py==>learn ',' AFTER REMOVING self.trainExamplesHistory: ', self.trainExamplesHistory)
 
             # backup history to a file
             # NB! the examples were collected using the model from the previous iteration, so (i-1)
@@ -177,3 +190,27 @@ class Coach():
             f.closed
             # examples based on the model were already collected (loaded)
             self.skipFirstSelfPlay = True
+
+    def bb2array(self, b): #board to vector of len 64
+    	x = np.zeros(64, dtype=np.int8)
+    	#print('Flipping: ', flip)
+    	for pos in range(64):
+    		piece = b.piece_type_at(pos) #Gets the piece type at the given square. 0==>blank,1,2,3,4,5,6
+    		if piece :
+    			color = int(bool(b.occupied_co[chess.BLACK] & chess.BB_SQUARES[pos])) #to check if piece is black or white
+    			#print ('piece: ', piece, 'b.occupied_co[chess.BLACK]: ', b.occupied_co[chess.BLACK], 'chess.BB_SQUARES[pos]: ', chess.BB_SQUARES[pos], 'color: ', color, 'pos: ', pos, '\t', b.occupied_co[chess.BLACK] & chess.BB_SQUARES[pos])
+    			col = int(pos % 8)
+    			row = int(pos / 8)
+    	#		if flip:
+    	#		row = 7-row
+    	#		color = 1 - color
+    			x[row * 8 + col] = -piece if color else piece
+    	t = b.turn
+    	c = b.castling_rights
+    	e = b.ep_square
+    	h = b.halfmove_clock
+    	f = b.fullmove_number
+    	return x
+    def vector2matrix(self, x):
+        y = np.reshape(x, (8,8))
+        return y
