@@ -62,8 +62,14 @@ class NNetWrapper(NeuralNet):
                 # measure data loading time
                 data_time.update(time.time() - end)
 
+                # print("dimension of boards: ", len(boards[0]))
+                print("pis l: ", len(pis[0]))
+                print("pis t: ", type(pis))
+
                 # record loss
                 self.sess.run(self.nnet.train_step, feed_dict=input_dict)
+                print("n1")
+
                 pi_loss, v_loss = self.sess.run([self.nnet.loss_pi, self.nnet.loss_v], feed_dict=input_dict)
                 pi_losses.update(pi_loss, len(boards))
                 v_losses.update(v_loss, len(boards))
